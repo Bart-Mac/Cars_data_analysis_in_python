@@ -1,12 +1,13 @@
-corr = cars_data.corr(numeric_only=True)
-print(corr)
+Cor = cars_data.corr(numeric_only=True)
+sns.heatmap(Cor, cmap="YlGnBu", annot=True, cbar=True)
+plt.show()
 cars_data.dropna(inplace=True)
-x=  cars_data[['Year', 'Engine Size (L)', 'Horsepower', 'Torque (lb-ft)', '0-60 MPH Time (seconds)']]
+x=  cars_data[['Year', 'Engine Size (L)', 'Horsepower',  '0-60 MPH Time (seconds)']]
 y= cars_data['Price (in USD)']
 x =sm.add_constant(x)
 model =sm.OLS(y, x.astype(float)).fit()
 print(model.summary())
-OLS Regression Results
+
 '''
  OLS Regression Results                            
 ==============================================================================
